@@ -9,7 +9,7 @@
     },
     "aggregators": {
         "template_simple": {
-            "template_filename": "/Users/scook/Documents/Personal/Code/centaur/sample_template.tmp",
+            "template_filename": "sample_template.tmp",
             "output_filename": "/tmp/centaur_example.html",
             "output_settings": {
                 "title": "Centaur"

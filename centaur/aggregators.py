@@ -37,19 +37,24 @@ def template_simple(template_filename=None, output_filename=None,
         raise TypeError(
             'template_simple() requires template_filename argument'
         )
+
     if not output_filename:
         raise TypeError(
             'template_simple() requires output_filename argument'
         )
+
     if not os.path.isfile(template_filename):
         raise ValueError('{} does not exist'.format(template_filename))
+
     template_dir, template_name = os.path.split(template_filename)
+
     try:
         env = Environment(loader=FileSystemLoader(template_dir))
         template = env.get_template(template_name)
     except Exception as e:
         # TODO - Better handling here
         raise
+
     entries = []
     try:
         while True:
@@ -68,6 +73,7 @@ def template_simple(template_filename=None, output_filename=None,
                 e['content_reconstituted'] = e['content'][0]['value']
             except KeyError:
                 e['content_reconstituted'] = e['summary']
+        print output_settings
         out = template.render(settings=output_settings, entries=entries)
         with io.open(output_filename, mode='w', encoding='utf-8') as f:
             f.write(out)

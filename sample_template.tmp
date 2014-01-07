@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>{{ title }}</title>
+	</head>
+	<body>
+	    <ul id="entries">
+	    {% for entry in entries %}
+	    	<li>
+	    		<a href="{{ entry.link }}">{{ entry.title_detail.value }}</a>
+	    		<br />
+	    		<span>{{ entry.published }}</span>
+	      </li>
+	    {% endfor %}
+	    </ul>
+	</body>
+</html>
