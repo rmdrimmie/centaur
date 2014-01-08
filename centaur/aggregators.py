@@ -73,7 +73,6 @@ def template_simple(template_filename=None, output_filename=None,
                 e['content_reconstituted'] = e['content'][0]['value']
             except KeyError:
                 e['content_reconstituted'] = e['summary']
-        print output_settings
         out = template.render(settings=output_settings, entries=entries)
         with io.open(output_filename, mode='w', encoding='utf-8') as f:
             f.write(out)
